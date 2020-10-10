@@ -29,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       },
       notes: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
       },
     });
