@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+     
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" media="screen"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    
+    <!-- Bootstrap CSS -->
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <title>Materialize!</title>
+  </head>
+  <body>
+    <!--<nav class="nav-wrapper indigo">
+        <div class="container">
+          <ul>
+           <li><a href="/"><img src="logo.gif" style="width:10%;height:10%;"></a></li>
+            <li> <a href="/Customers">Customers</a> </li>
+            <li> <a href="/calendar">Calendar</a> </li>
+            <li class="search-icon">
+                <input type="search" placeholder="Search">
+            <li> <a href="/logIn">logIn</a> </li>
+            <li> <a href="/SignUp">SignUp</a> </li>
+            
+              </div>
+        </div>
+
+          </li>
+        </ul></nav>-->
+        <nav>
+            <div class="nav-wrapper">
+              <a href="#" ><img class="brand-logo" src="logo.gif"></a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="sass.html"><i class="material-icons left">account_circle</i>Customers</a></li>
+                <li><a href="https://calendly.com/event_types/user/me"><i class="material-icons left">perm_contact_calendar</i>Calendar</a></li>
+                <li><a href="http://www.google.com"><i class="material-icons left">search</i>Search</a></li>
+                <li class="search-icon">
+                    <input type="search" placeholder="">
+                <li><a href="login.html">Log In</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+              </ul>
+            </div>
+          
+        </nav>
+      </header>
+    <h1>Hello, world!</h1>
+
+    <!-- Optional JavaScript -->
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded',function(){
+        const inputField = document.querySelector('.autocomplete');
+        M.Autocomplete.init(inputField,{
+            data:{
+                'Google': null,
+                'Yahoo':null,
+                'Youtube':null,
+                'OstonCode':null
+            }
+        })
+    });   
+    
+    </script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
