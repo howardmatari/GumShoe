@@ -120,4 +120,71 @@ module.exports = function(app) {
     });
   }
   });
+
+  //find all products
+  app.get("/api/products", (req,res) =>{
+    if (!req.user){
+      db.Products.findAll({
+      }).then((dbProducts) => {
+        res.json({dbProducts});
+      });
+    } else {
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      });
+    }
+  });
+
+  // POST route for saving a new products
+  app.post("/api/products", (req,res) =>{
+    if (!req.user){
+      db.Products.create(req.body).then((dbProducts) => {
+        res.json({dbProducts});
+      });
+    } else {
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      });
+    }
+  });
+
+   // DELETE route for deleting products
+   app.delete("/api/products/:id", (req, res)=> {
+    if (!req.user){
+    db.Products.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then((dbProducts) => {
+      res.json(dbProducts);
+    });
+    } else {
+    res.json({
+      email: req.user.email,
+      id: req.user.id
+    });
+  }
+  });
+
+  // PUT route for updating products
+  app.put("/api/products", (req, res)=> {
+    if (!req.user){
+    db.Products.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then((dbProducts)=> {
+      res.json(dbProducts);
+    });
+  } else {
+    res.json({
+      email: req.user.email,
+      id: req.user.id
+    });
+  }
+  });
 };
