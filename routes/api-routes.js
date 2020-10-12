@@ -1,11 +1,11 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
-const Appointmnets = require("../models/appointments");
+const Appointments = require("../models/appointments");
 const Contacts = require("../models/contacts");
 const Products = require("../models/products")
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -20,24 +20,24 @@ module.exports = function(app) {
   //ADDED BY PAO
   app.post("/api/home", (req, res) => {
     db.User.update(req.body)
-  }
-  //** 
+  },
+    //** 
 
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
-  app.post("/api/signup", (req, res) => {
-    db.User.create({
-      email: req.body.email,
-      password: req.body.password
-    })
-      .then(() => {
-        res.redirect(307, "/api/login");
+    // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
+    // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
+    // otherwise send back an error
+    app.post("/api/signup", (req, res) => {
+      db.User.create({
+        email: req.body.email,
+        password: req.body.password
       })
-      .catch(err => {
-        res.status(401).json(err);
-      });
-  });
+        .then(() => {
+          res.redirect(307, "/api/login");
+        })
+        .catch((err) => {
+          res.status(401).json(err);
+        });
+    }));
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
@@ -60,12 +60,12 @@ module.exports = function(app) {
     }
   });
 
-//find all contacts
-  app.get("/api/contacts", (req,res) =>{
-    if (!req.user){
+  //find all contacts
+  app.get("/api/contacts", (req, res) => {
+    if (!req.user) {
       db.Contacts.findAll({
       }).then((dbContacts) => {
-        res.json({dbContacts});
+        res.json({ dbContacts });
       });
     } else {
       res.json({
@@ -76,10 +76,10 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new post
-  app.post("/api/contacts", (req,res) =>{
-    if (!req.user){
+  app.post("/api/contacts", (req, res) => {
+    if (!req.user) {
       db.Contacts.create(req.body).then((dbContacts) => {
-        res.json({dbContacts});
+        res.json({ dbContacts });
       });
     } else {
       res.json({
@@ -89,50 +89,50 @@ module.exports = function(app) {
     }
   });
 
-   // DELETE route for deleting posts
-   app.delete("/api/contacts/:id", (req, res)=> {
-    if (!req.user){
-    db.Contacts.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then((dbContacts) => {
-      res.json(dbContacts);
-    });
+  // DELETE route for deleting posts
+  app.delete("/api/contacts/:id", (req, res) => {
+    if (!req.user) {
+      db.Contacts.destroy({
+        where: {
+          id: req.params.id
+        }
+      }).then((dbContacts) => {
+        res.json(dbContacts);
+      });
     } else {
-    res.json({
-      email: req.user.email,
-      id: req.user.id
-    });
-  }
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      });
+    }
   });
 
   // PUT route for updating posts
-  app.put("/api/contacts", (req, res)=> {
-    if (!req.user){
-    db.Contacts.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then((dbContacts)=> {
-      res.json(dbContacts);
-    });
-  } else {
-    res.json({
-      email: req.user.email,
-      id: req.user.id
-    });
-  }
+  app.put("/api/contacts", (req, res) => {
+    if (!req.user) {
+      db.Contacts.update(
+        req.body,
+        {
+          where: {
+            id: req.body.id
+          }
+        }).then((dbContacts) => {
+          res.json(dbContacts);
+        });
+    } else {
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      });
+    }
   });
 
   //find all products
-  app.get("/api/products", (req,res) =>{
-    if (!req.user){
+  app.get("/api/products", (req, res) => {
+    if (!req.user) {
       db.Products.findAll({
       }).then((dbProducts) => {
-        res.json({dbProducts});
+        res.json({ dbProducts });
       });
     } else {
       res.json({
@@ -143,10 +143,10 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new products
-  app.post("/api/products", (req,res) =>{
-    if (!req.user){
+  app.post("/api/products", (req, res) => {
+    if (!req.user) {
       db.Products.create(req.body).then((dbProducts) => {
-        res.json({dbProducts});
+        res.json({ dbProducts });
       });
     } else {
       res.json({
@@ -156,41 +156,41 @@ module.exports = function(app) {
     }
   });
 
-   // DELETE route for deleting products
-   app.delete("/api/products/:id", (req, res)=> {
-    if (!req.user){
-    db.Products.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then((dbProducts) => {
-      res.json(dbProducts);
-    });
+  // DELETE route for deleting products
+  app.delete("/api/products/:id", (req, res) => {
+    if (!req.user) {
+      db.Products.destroy({
+        where: {
+          id: req.params.id
+        }
+      }).then((dbProducts) => {
+        res.json(dbProducts);
+      });
     } else {
-    res.json({
-      email: req.user.email,
-      id: req.user.id
-    });
-  }
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      });
+    }
   });
 
   // PUT route for updating products
-  app.put("/api/products", (req, res)=> {
-    if (!req.user){
-    db.Products.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then((dbProducts)=> {
-      res.json(dbProducts);
-    });
-  } else {
-    res.json({
-      email: req.user.email,
-      id: req.user.id
-    });
-  }
+  app.put("/api/products", (req, res) => {
+    if (!req.user) {
+      db.Products.update(
+        req.body,
+        {
+          where: {
+            id: req.body.id
+          }
+        }).then((dbProducts) => {
+          res.json(dbProducts);
+        });
+    } else {
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      });
+    }
   });
 };
