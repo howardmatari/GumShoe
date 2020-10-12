@@ -17,6 +17,12 @@ module.exports = function(app) {
     });
   });
 
+  //ADDED BY PAO
+  app.post("/api/home", (req, res) => {
+    db.User.update(req.body)
+  }
+  //** 
+
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
