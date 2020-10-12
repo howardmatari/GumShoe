@@ -13,11 +13,11 @@ module.exports = function (app) {
 		res.sendFile(path.join(__dirname, '../public/signup.html'));
 	});
 
-	//ADDED BY PAO
-	app.get('/home', isAuthenticated, (req, res) => {
-		res.sendFile(path.join(__dirname, '../public/login.html'));
-	});
-	//** 
+	// //ADDED BY PAO
+	// app.get('/index', isAuthenticated, (req, res) => {
+	// 	res.sendFile(path.join(__dirname, '../public/index.html'));
+	// });
+	// //** 
 	
 	app.get('/login', (req, res) => {
 		// If the user already has an account send them to the members page
@@ -36,5 +36,15 @@ module.exports = function (app) {
 
 	app.get('/signup', isAuthenticated, (req, res) => {
 		res.sendFile(path.join(__dirname, '../public/signup.html'));
-	});
+  });
+  
+  // index route loads index.html
+  app.get("/index", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
+
+  // calendar route loads calendar.html
+  app.get("/calendar", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/calendar.html"));
+  });
 };
