@@ -13,6 +13,7 @@ var db        = {};
 // } else {
 //   var sequelize = new Sequelize(process.env.DB_DATABASE||config.database, process.env.DB_USERNAME||config.username, process.env.DB_PASSWORD||config.password, {...config,port:process.env.DB_PORT||config.port});
 // }
+
 var sequelize = new Sequelize(
   process.env.DB_DATABASE_NAME||config.database, 
   process.env.DB_USER||config.username, 

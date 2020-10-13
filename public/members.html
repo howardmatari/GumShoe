@@ -2,30 +2,168 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>GumShoe | Welcome</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
-      </a>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/logout">
+          Logout
+        </a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+  <p id="date"> <span id="datetime"></span></p>
+
   <div class="container">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-12">
         <h2>Welcome <span class="member-name"></span></h2>
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="column .col-md-4" onclick="openTab('b1');" style="background:rgb(44, 47, 236);">Customer Information
+    </div>
+    <div class="column .col-md-4" onclick="openTab('b2');" style="background:rgb(24, 135, 172);">services performed
+    </div>
+    <div class="column .col-md-4" onclick="openTab('b3');" style="background:rgb(6, 1, 48);">Products used</div>
+  </div>
+
+  <!-- The expanding grid (hidden by default) -->
+  <div id="b1" class="containerTab" style="display:none;background: #5a0748;">
+    <!-- If you want the ability to close the container, add a close button -->
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">${}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>${}</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>${}</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>${}</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>${}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="b2" class="containerTab" style="display:none;background: #5a0748">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Service Name</th>
+          <th scope="col">Lorem</th>
+          <th scope="col">Lorem</th>
+          <th scope="col">${}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>${}</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>${}</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>${}</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div id="b3" class="containerTab" style="display:none;background:#5a0748">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">x</span>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Qty</th>
+          <th scope="col">Product Name </th>
+          <th scope="col">Product ID</th>
+          <th scope="col">${}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>lorem</td>
+          <td>lorem</td>
+          <td>${}</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>${}</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>${}</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>${}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    <!-- Copyright -->
+    <p>© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> GumShoe.com</a>
+    </p>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/members.js"></script>

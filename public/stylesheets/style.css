@@ -1,13 +1,221 @@
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+
 form.signup,
 form.login {
-  margin-top: 50px;
+	margin-top: 50px;
 }
 
-.main-nav {
-  @include navbar();
+  .brand-logo {
+	width: 70px; 
+	height: 70px;
+  }
+
+body {
+	background-image: url('../Img/email-pattern.webp');
+	background-color: lightgray; /* Used if the image is unavailable */
+	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: cover; /* Resize the background image to cover the entire container */
+}
+h2 {
+	text-align: center;
+	font-family: 'Lobster', cursive;
+	font-size: 60px;
+	color: #5a0748;
+	
+}
+* {
+	box-sizing: border-box;
 }
 
-.brand-logo {
-  width: 70px; 
-  height: 70px;
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
+
+.container {
+	padding: 64px;
+}
+
+.row:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.column-66 {
+	float: left;
+	width: 66.66666%;
+	padding: 20px;
+}
+
+.column-33 {
+	float: left;
+	width: 33.33333%;
+	padding: 20px;
+}
+
+.col-md-4{
+	float: center;
+}
+
+.large-font {
+	font-size: 48px;
+}
+
+.xlarge-font {
+	font-size: 64px;
+	font-family: 'Lobster', cursive;
+	color: #5a0748;
+}
+
+.button {
+	border: none;
+	color: white;
+	padding: 14px 28px;
+	font-size: 16px;
+	cursor: pointer;
+	background-color: #5a0748;
+}
+
+img {
+	margin-top: 100px;
+	float: right;
+	display: block;
+	height: auto;
+	max-width: 130%;
+}
+
+@media screen and (max-width: 1000px) {
+	.column-66,
+	.column-33,
+	.col-md-4 {
+		width: 100%;
+		text-align: center;
+	}
+	
+	img {
+		margin: auto;
+	}
+}
+/* The grid: Three equal columns that floats next to each other */
+.column {
+	float: left;
+	width: 33.33%;
+	padding: 50px;
+	text-align: center;
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 35px;
+	cursor: pointer;
+	color: white;
+}
+
+.containerTab {
+	padding: 20px;
+	color: white;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+/* Closable button inside the image */
+.closebtn {
+	float: right;
+	color: white;
+	font-size: 35px;
+	cursor: pointer;
+}
+
+footer {
+	text-align: center;
+	padding: 250px;
+}
+
+#date {
+	float: right;
+	font-family: 'Comfortaa', cursive;
+}
+
+/*calendar*/
+
+.month {
+	padding: 70px 25px;
+	width: 100%;
+	background:  #5a0748;
+	text-align: center;
+  }
+  
+  .month ul {
+	margin: 0;
+	padding: 0;
+  }
+  
+  .month ul li {
+	color: white;
+	font-size: 20px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+  }
+  
+  .month .prev {
+	float: left;
+	padding-top: 10px;
+  }
+  
+  .month .next {
+	float: right;
+	padding-top: 10px;
+  }
+  
+  .weekdays {
+	margin: 0;
+	padding: 10px 0;
+	background-color: #ddd;
+  }
+  
+  .weekdays li {
+	display: inline-block;
+	width: 13.6%;
+	color: #666;
+	text-align: center;
+  }
+  
+  .days {
+	padding: 10px 0;
+	background: #eee;
+	margin: 0;
+  }
+  
+  .days li {
+	list-style-type: none;
+	display: inline-block;
+	width: 13.6%;
+	text-align: center;
+	margin-bottom: 5px;
+	font-size:12px;
+	color: #777;
+  }
+  
+  .days li .active {
+	padding: 5px;
+	background:  #5a0748;
+	color: white !important
+  }
+  
+  /* Add media queries for smaller screens */
+  @media screen and (max-width:720px) {
+	.weekdays li, .days li {width: 13.1%;}
+  }
+  
+  @media screen and (max-width: 420px) {
+	.weekdays li, .days li {width: 12.5%;}
+	.days li .active {padding: 2px;}
+  }
+  
+  @media screen and (max-width: 290px) {
+	.weekdays li, .days li {width: 12.2%;}
+  }

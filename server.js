@@ -21,6 +21,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+//ADDED BY PAO
+app.get("/home", function (req,res){
+  res.sendFile(path.join(__dirname, "../public/login.html"))
+})
+//** 
+
 // Requiring our routes
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
