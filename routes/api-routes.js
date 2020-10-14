@@ -63,14 +63,11 @@ module.exports = function (app) {
   //find all contacts
   app.get("/api/contacts", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Contacts.findAll({
       }).then((dbContacts) => {
         res.json({ dbContacts });
-      });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
       });
     }
   });
@@ -79,13 +76,10 @@ module.exports = function (app) {
   app.post("/api/contacts", (req, res) => {
     console.log (req.body)
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Contacts.create(req.body).then((dbContacts) => {
         res.json({ dbContacts });
-      });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
       });
     }
   });
@@ -93,6 +87,8 @@ module.exports = function (app) {
   // DELETE route for deleting posts
   app.delete("/api/contacts/:id", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Contacts.destroy({
         where: {
           id: req.params.id
@@ -100,17 +96,14 @@ module.exports = function (app) {
       }).then((dbContacts) => {
         res.json(dbContacts);
       });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
     }
   });
 
   // PUT route for updating posts
   app.put("/api/contacts", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Contacts.update(
         req.body,
         {
@@ -120,25 +113,17 @@ module.exports = function (app) {
         }).then((dbContacts) => {
           res.json(dbContacts);
         });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
     }
   });
 
   //find all products
   app.get("/api/products", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Products.findAll({
       }).then((dbProducts) => {
         res.json({ dbProducts });
-      });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
       });
     }
   });
@@ -146,13 +131,10 @@ module.exports = function (app) {
   // POST route for saving a new products
   app.post("/api/products", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Products.create(req.body).then((dbProducts) => {
         res.json({ dbProducts });
-      });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
       });
     }
   });
@@ -160,6 +142,8 @@ module.exports = function (app) {
   // DELETE route for deleting products
   app.delete("/api/products/:id", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Products.destroy({
         where: {
           id: req.params.id
@@ -167,17 +151,14 @@ module.exports = function (app) {
       }).then((dbProducts) => {
         res.json(dbProducts);
       });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
     }
   });
 
   // PUT route for updating products
   app.put("/api/products", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Products.update(
         req.body,
         {
@@ -187,11 +168,6 @@ module.exports = function (app) {
         }).then((dbProducts) => {
           res.json(dbProducts);
         });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
     }
   });
 };
