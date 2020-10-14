@@ -34,7 +34,7 @@ module.exports = function (app) {
 	});
 
 
-	app.get('/signup', isAuthenticated, (req, res) => {
+	app.get('/signup',(req, res) => {
 		res.sendFile(path.join(__dirname, '../public/signup.html'));
   });
   
@@ -44,7 +44,7 @@ module.exports = function (app) {
   });
 
   // calendar route loads calendar.html
-  app.get("/calendar", isAuthenticated, function(req, res) {
+  app.get("/calendar",function(req, res) {
     res.sendFile(path.join(__dirname, "../public/calendar.html"));
   });
 };

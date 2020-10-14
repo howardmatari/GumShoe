@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     let Contacts = sequelize.define("Contacts", {
       id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER ,
         autoIncrement: true,
         primaryKey: true
       },
@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       },
       phoneNumber: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
       },
       email: {
