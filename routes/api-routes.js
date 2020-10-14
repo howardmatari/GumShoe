@@ -79,13 +79,10 @@ module.exports = function (app) {
   app.post("/api/contacts", (req, res) => {
     console.log (req.body)
     if (!req.user) {
-      db.Contacts.create(req.body).then((dbContacts) => {
-        res.json({ dbContacts });
-      });
+      return res.sendStatus(401)
     } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
+      db.Contacts.create({...req.body,UserId:req.user.id}).then((dbContacts) => {
+        res.json({ dbContacts });
       });
     }
   });

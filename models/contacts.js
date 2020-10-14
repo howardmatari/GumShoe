@@ -1,10 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     let Contacts = sequelize.define("Contacts", {
-      id: {
-        type: DataTypes.INTEGER ,
-        autoIncrement: true,
-        primaryKey: true
-      },
+      
       firstName: {
         type: DataTypes.STRING,
         allowNull: false
