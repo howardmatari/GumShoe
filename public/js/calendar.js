@@ -1,3 +1,5 @@
+
+	
 let today = new Date();
 let currentMonth = today.getMonth();
 let currentYear = today.getFullYear();
@@ -69,3 +71,7 @@ function next() {
 	currentMonth = (currentMonth + 1) % 12;
 	showCalendar(currentMonth, currentYear);
 }
+
+
+
+	$(document).on('submit', '#contacts-form', handleContactsFormSubmit);

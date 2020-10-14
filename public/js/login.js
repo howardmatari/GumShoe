@@ -29,10 +29,11 @@ $(document).ready(() => {
 			password: password,
 		})
 			.then(() => {
-				window.location.replace('/members');
+		window.location.replace('/members');
 				// If there's an error, log the error
 			})
-			.catch((err) => {
+
+		.catch((err) => {
 				console.log(err);
 			});
 	}
