@@ -15,8 +15,8 @@ form.login {
 	height: 70px;
 }
 
-img {
-	/* margin-top: 100px; */
+#service {
+	margin-top: 100px;
 	float: right;
 	display: block;
 	height: auto;
@@ -29,25 +29,46 @@ body {
 	background-repeat: no-repeat; /* Do not repeat the image */
 	background-size: cover; /* Resize the background image to cover the entire container */
 }
-/*h2 {
+.myagendatext {
+	
+	font-family: 'Lobster', cursive;
+	font-size: 60px;
+	color: #5a0748;
+	
+}
+
+h2 {
+	margin-top: 20px;
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+	color: #5a0748;
+	font-size: 50px;
+}
+
+h1 {
+	
 	text-align: center;
 	font-family: 'Lobster', cursive;
 	font-size: 60px;
 	color: #5a0748;
 	
-}*/
-
-* {
-	box-sizing: border-box;
 }
 
-body {
-	margin: 0;
-	font-family: Arial, Helvetica, sans-serif;
+#title{
+	padding-left: 400px;
+	text-align: center;
+	font-family: 'Lobster', cursive;
+	font-size: 70px;
+	color: #5a0748;
 }
 
-.container {
-	padding: 64px;
+text {
+
+	text-align: center;
+	font-family: 'Lobster', cursive;
+	font-size: 60px;
+	color: #5a0748;
+	
 }
 
 .row:after {
@@ -91,8 +112,7 @@ body {
 	background-color: #5a0748;
 }
 
-img {
-	margin-top: 100px;
+#logo {
 	float: right;
 	display: block;
 	height: auto;
@@ -249,14 +269,6 @@ button.submit {
 	float: right;
 }
 
-form#cms {
-	margin-top: 50px;
-}
-
-#cms textarea {
-	resize: none;
-}
-
 .card-header button.delete,
 button.edit {
 	float: right;
@@ -265,22 +277,12 @@ button.edit {
 
 .contacts-container {
 	margin-top: 50px;
+	padding-left: 380px;
+	
 }
 
 .contacts-list {
 	margin-top: 25px;
-}
-
-.blog-container {
-	margin-top: 30px;
-}
-
-.blog {
-	margin-top: 30px;
-}
-
-.hidden {
-	display: none;
 }
 
 #contacts-firstName,
@@ -308,29 +310,45 @@ button.edit {
 /*calendar*/
 
 #rcorners2 {
-	margin-top: 70px;
-	margin-left: 234px;
+	text-align: center ;
+	margin-top:500px;
 	border-radius: 25px;
 	border: 2px solid #5a0748;
-	padding: 10px;
-	width: 800px;
+	width: 900px;
 	height: 100px;
 	font-family: 'Dancing Script', cursive;
-	font-size: 35px;
-	text-align: center;
-}
+	font-size:45px;
+	}
 
-h2 {
-	margin-top: 20px;
-	font-family: 'Pacifico', cursive;
-	text-align: center;
-	color: #5a0748;
-	font-size: 50px;
-}
 
+	.container-calendar{
+		padding-left: 290px;
+	}
 h3 {
 	font-family: 'Lobster', cursive;
 	text-align: center;
 	color: #5a0748;
 	font-size: 30px;
+}
+
+.products-container{
+	margin-top: 80px;
+padding-left: 400px;
+width: 400px;
+}
+
+.first-strip{
+	font-size: 22px;
+}
+
+.table{
+	padding-left: 200px;
+}
+
+#roundedsquare{
+	padding-left: 200px;
+}
+
+#name{
+	padding-left: 10px;
 }

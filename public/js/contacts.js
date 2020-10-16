@@ -47,7 +47,7 @@ $(document).ready(function() {
 		$.post('/api/contacts', contactsData).then(getContacts);
 	}
 
-	// Function for creating a new list row for contacts
+	/* Function for creating a new list row for contacts
 	function createfirstNameRow(firstNameData) {
 		console.log.firstNameData
 		var newTr = $('<tr>');
@@ -84,14 +84,31 @@ $(document).ready(function() {
 				newTr.append('<td>' + notesData.notes + '</td>');
 			}
     return newTr;
-	}
+	}*/
+
+	function createContactsRow(dbContacts) {
+		var newTr = $("<tr>");
+		newTr.data("contacts", dbContacts);
+		newTr.append("<td>" + dbContacts.firstName + "</td>");
+		newTr.append("<td>" + dbContacts.lastName + "</td>");
+		newTr.append("<td>" + dbContacts.phoneNumber + "</td>");
+		newTr.append("<td>" + dbContacts.email + "</td>");
+		newTr.append("<td>" + dbContacts.notes + "</td>");
+		if (dbContacts.Posts) {
+		  newTr.append("<td> " + dbContacts.Posts.length + "</td>");
+		} else {
+		  newTr.append("<td>0</td>");
+		}
+		return newTr;
+	  }
+	
 
 	// Function for retrieving contacts and getting them ready to be rendered to the page
 	function getContacts() {
-		$.get('/api/Contacts', function(data) {
+		$.get('/api/contacts', function(data) {
 			var rowsToAdd = [];
-			for (var i = 0; i < data.length; i++) {
-				rowsToAdd.push(createContactsRow(data[i]));
+			for (var i = 0; i < data.dbContacts.length; i++) {
+				rowsToAdd.push(createContactsRow(data.dbContacts[i]));
 			}
 			renderContactsList(rowsToAdd);
 			nameInput.val('');
@@ -151,7 +168,7 @@ $(document).ready(function() {
 	}
 
 	// InitializeRows handles appending all of our constructed post HTML inside blogContainer
-	function initializeRows() {
+	/*function initializeRows() {
 		blogContainer.empty();
 		var customersToAdd = [];
 		for (var i = 0; i < customers.length; i++) {
@@ -160,7 +177,7 @@ $(document).ready(function() {
 		blogContainer.append(customersToAdd);
 	}
 
-	// This function constructs a post's HTML
+	/* This function constructs a post's HTML
 	function createNewRow(post) {
 		var formattedDate = new Date(post.createdAt);
 		formattedDate = moment(formattedDate).format('MMMM Do YYYY, h:mm:ss a');
@@ -207,7 +224,7 @@ $(document).ready(function() {
 		window.location.href = '/cms?post_id=' + currentPost.id;
 	}*/
 
-	// This function displays a message when there are no posts
+	/*This function displays a message when there are no posts
 	function displayEmpty(id) {
 		var query = window.location.search;
 		var partial = '';
@@ -225,5 +242,5 @@ $(document).ready(function() {
 				"'>here</a> in order to add a new contact."
 		);
 		blogContainer.append(messageH2);
-	}
+	}*/
 });
