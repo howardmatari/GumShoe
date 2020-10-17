@@ -18,9 +18,9 @@ module.exports = function (app) {
   });
 
   //ADDED BY PAO
-  app.post("/api/home", (req, res) => {
-    db.User.update(req.body)
-  },
+  //app.post("/api/home", (req, res) => {
+  //  db.User.update(req.body)
+  //},
     //** 
 
     // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -37,7 +37,7 @@ module.exports = function (app) {
         .catch((err) => {
           res.status(401).json(err);
         });
-  }));
+  });
 
   // Route for logging user out
   app.get("/logout", (req, res) => {
@@ -63,28 +63,23 @@ module.exports = function (app) {
   //find all contacts
   app.get("/api/contacts", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Contacts.findAll({
       }).then((dbContacts) => {
         res.json({ dbContacts });
-      });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
       });
     }
   });
 
   // POST route for saving a new post
   app.post("/api/contacts", (req, res) => {
+    console.log (req.body)
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Contacts.create(req.body).then((dbContacts) => {
         res.json({ dbContacts });
-      });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
       });
     }
   });
@@ -92,6 +87,8 @@ module.exports = function (app) {
   // DELETE route for deleting posts
   app.delete("/api/contacts/:id", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Contacts.destroy({
         where: {
           id: req.params.id
@@ -99,17 +96,14 @@ module.exports = function (app) {
       }).then((dbContacts) => {
         res.json(dbContacts);
       });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
     }
   });
 
   // PUT route for updating posts
   app.put("/api/contacts", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Contacts.update(
         req.body,
         {
@@ -119,25 +113,17 @@ module.exports = function (app) {
         }).then((dbContacts) => {
           res.json(dbContacts);
         });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
     }
   });
 
   //find all products
   app.get("/api/products", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Products.findAll({
       }).then((dbProducts) => {
         res.json({ dbProducts });
-      });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
       });
     }
   });
@@ -145,13 +131,10 @@ module.exports = function (app) {
   // POST route for saving a new products
   app.post("/api/products", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Products.create(req.body).then((dbProducts) => {
         res.json({ dbProducts });
-      });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
       });
     }
   });
@@ -159,6 +142,8 @@ module.exports = function (app) {
   // DELETE route for deleting products
   app.delete("/api/products/:id", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Products.destroy({
         where: {
           id: req.params.id
@@ -166,17 +151,14 @@ module.exports = function (app) {
       }).then((dbProducts) => {
         res.json(dbProducts);
       });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
     }
   });
 
   // PUT route for updating products
   app.put("/api/products", (req, res) => {
     if (!req.user) {
+      return res.sendStatus(401);
+    } else {
       db.Products.update(
         req.body,
         {
@@ -186,11 +168,44 @@ module.exports = function (app) {
         }).then((dbProducts) => {
           res.json(dbProducts);
         });
-    } else {
-      res.json({
-        email: req.user.email,
-        id: req.user.id
-      });
     }
   });
 };
+
+db.Contacts.findAll({
+  include: [db.Post]
+}).then(function(dbContacts) {
+  res.json(dbContacts);
+});
+
+
+/*app.get("/api/contacts/:id", function(req, res) {
+// Here we add an "include" property to our options in our findOne query
+// We set the value to an array of the models we want to include in a left outer join
+// In this case, just db.Post
+db.Contacts.findOne({
+  where: {
+    id: req.params.id
+  },
+  include: [db.Post]
+}).then(function(dbContacts) {
+  res.json(dbContacts);
+});
+});
+
+app.post("/api/contacts", function(req, res) {
+db.Contacts.create(req.body).then(function(dbContacts) {
+  res.json(dbContacts);
+});
+});
+
+app.delete("/api/contacts/:id", function(req, res) {
+db.Contacts.destroy({
+  where: {
+    id: req.params.id
+  }
+}).then(function(dbContacts) {
+  res.json(dbContacts);
+});
+});*/
+
