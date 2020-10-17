@@ -21,22 +21,22 @@ module.exports = function (app) {
   //app.post("/api/home", (req, res) => {
   //  db.User.update(req.body)
   //},
-    //** 
+  //** 
 
-    // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-    // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-    // otherwise send back an error
-    app.post("/api/signup", (req, res) => {
-      db.User.create({
-        email: req.body.email,
-        password: req.body.password
+  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
+  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
+  // otherwise send back an error
+  app.post("/api/signup", (req, res) => {
+    db.User.create({
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(() => {
+        res.redirect(307, "/api/login");
       })
-        .then(() => {
-          res.redirect(307, "/api/login");
-        })
-        .catch((err) => {
-          res.status(401).json(err);
-        });
+      .catch((err) => {
+        res.status(401).json(err);
+      });
   });
 
   // Route for logging user out
@@ -74,7 +74,7 @@ module.exports = function (app) {
 
   // POST route for saving a new post
   app.post("/api/contacts", (req, res) => {
-    console.log (req.body)
+    console.log(req.body)
     if (!req.user) {
       return res.sendStatus(401);
     } else {
@@ -174,7 +174,7 @@ module.exports = function (app) {
 
 db.Contacts.findAll({
   include: [db.Post]
-}).then(function(dbContacts) {
+}).then(function (dbContacts) {
   res.json(dbContacts);
 });
 
