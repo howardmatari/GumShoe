@@ -172,11 +172,11 @@ module.exports = function (app) {
   });
 };
 
-db.Contacts.findAll({
-  include: [db.Post]
-}).then(function(dbContacts) {
-  res.json(dbContacts);
-});
+// db.Contacts.findAll({
+//   include: [db.Post]
+// }).then(function(dbContacts) {
+//   res.json(dbContacts);
+// });
 
 
 /*app.get("/api/contacts/:id", function(req, res) {
