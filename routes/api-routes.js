@@ -178,11 +178,11 @@ module.exports = function (app) {
 //   res.json(dbContacts);
 // });
 
-db.Contacts.findAll({
-  include: [db.Post]
-}).then(function (dbContacts) {
-  res.json(dbContacts);
-});
+// db.Contacts.findAll({
+//   include: [db.Post]
+// }).then(function (dbContacts) {
+//   res.json(dbContacts);
+// });
 
 
 
