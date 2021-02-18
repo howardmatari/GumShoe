@@ -30,6 +30,12 @@ Click create new customer
 Prerequisites
 No special hardware or software is required to use this web app. All you need is a modern browser.
 
+Running the tests
+Basic functionality testing to make sure navbar is working
+
+And coding style tests
+ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+
 Screenshots
 https://evening-badlands-50066.herokuapp.com/members.html
 
